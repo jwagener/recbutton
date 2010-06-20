@@ -1,0 +1,7 @@
+activeresource
+activesupport
+multipart
+oauth '>= 0.3.6'
+oauth-active-resource -s http://gemcutter.org
+soundcloud-ruby-api-wrapper -s http://gemcutter.org
+

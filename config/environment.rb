@@ -10,6 +10,8 @@ require File.join(File.dirname(__FILE__), 'boot')
 gem 'soundcloud-ruby-api-wrapper'
 require 'soundcloud'
 
+gem 'haml'
+
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
@@ -44,9 +46,22 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 
   # SoundCloud API OAuth settings
-  consumer_token = 'deJElGMeHUQB1KV5rAR0A'
-  consumer_secret = '58XuHMx11yomPZnMw6vbseJNGpiRe0KUnFyTCcigY'
-  $sc_host = 'sandbox-soundcloud.com'
-  $sc_consumer = Soundcloud.consumer(consumer_token, consumer_secret, "http://api.#{$sc_host}")
+  consumer_token = 'vh6FOjsncSNpr5npId5zA'
+  consumer_secret = 'uaMzQoyYcbfY5TUVnoLyf1k2YtxmIXTEGBuispNPbI'
+  $sc_host = 'soundcloud.com'
+  
+  #consumer_token = 'izBVnBd0TuX0nzfnmK1ZA'
+  #consumer_secret = 'HjP6uzsqNVbvMFTKQwXFOtuYTO9tIVePxvlmOEASBY'
+  #$sc_host = 'soundcloud.dev'
+  
+  
+  $sc_consumer = OAuth::Consumer.new(consumer_token, consumer_secret, {
+      :site               => "http://api.#{$sc_host}",
+      :scheme             => :query_string,
+      :request_token_path => "/oauth/request_token",
+      :access_token_path  => "/oauth/access_token",
+      :authorize_path     => "/oauth/authorize"
+    })
+  # = Soundcloud.consumer(consumer_token, consumer_secret, , :scheme => :query_string)
 
 end

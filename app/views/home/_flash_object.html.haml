@@ -1,0 +1,9 @@
+- f = flash_object
+.recorder{:id => f[:id]}
+  %object{:height => f[:height], :width => f[:width]}
+    %param{:name => 'wmode', :value => f[:wmode]}
+    %param{:name => 'movie', :value => f[:src]}
+    %param{:name => 'allowscriptaccess', :value => f[:allowscriptaccess]}
+  
+    %embed{:allowscriptaccess => f[:allowscriptaccess], :wmode => f[:wmode], :height => f[:height], :width => f[:width], :src => f[:src], :type => 'application/x-shockwave-flash' }
+  

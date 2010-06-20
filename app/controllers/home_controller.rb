@@ -2,6 +2,10 @@ class HomeController < ApplicationController
   layout "base"
 
   def index
+    render :layout => false
+  end
+
+  def index2
     if session[:access_token] && session[:access_token_secret] 
       access_token = OAuth::AccessToken.new($sc_consumer,
                                             session[:access_token],
