@@ -1,0 +1,17 @@
+<script src="http://connect.soundcloud.com/base.js"></script>
+<script>
+  SC.Connect.options = {
+    'request_token_endpoint': '/oauth/request_token',
+    'access_token_endpoint': '/oauth/access_token',
+    'callback': function(params) {
+      window.location.reload();
+    }
+  };
+</script>
+<p>
+  <a id="sc-connect"
+     href="#" 
+     onclick="SC.Connect.initiate();">
+  </a>
+</p>
+ 

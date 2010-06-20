@@ -1,0 +1,35 @@
+
+<img class="profile-pic" src=<%= @avatar_url %>>
+
+<div class="profile-text">
+  <center>You are connected as <b><%= @me.username %></b></center>
+  <%= link_to "logout", 
+        {:controller => "home", :action => "logout"},
+        {:id => "sc-disconnect"}      
+  %>
+</div>
+
+<div style="clear:both;" />
+
+<div id="public_tracks" class="tracks">
+  You have <%= @public_tracks.size %> public tracks.
+  <ul>
+    <% @public_tracks.each do |t| %>
+    <li>
+      <%= t.title %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="private_tracks" class="tracks">
+  You have <%= @private_tracks.size %> private tracks
+  <ul>
+    <% @private_tracks.each do |t| %>
+    <li>
+      <%= t.title %>
+    </li>
+    <% end %>
+  </ul>
+
+</div>
