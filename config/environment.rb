@@ -50,9 +50,9 @@ Rails::Initializer.run do |config|
   consumer_secret = 'uaMzQoyYcbfY5TUVnoLyf1k2YtxmIXTEGBuispNPbI'
   $sc_host = 'soundcloud.com'
   
-  consumer_token = 'izBVnBd0TuX0nzfnmK1ZA'
-  consumer_secret = 'HjP6uzsqNVbvMFTKQwXFOtuYTO9tIVePxvlmOEASBY'
-  $sc_host = 'soundcloud.dev'
+#  consumer_token = 'izBVnBd0TuX0nzfnmK1ZA'
+#  consumer_secret = 'HjP6uzsqNVbvMFTKQwXFOtuYTO9tIVePxvlmOEASBY'
+#  $sc_host = 'soundcloud.dev'
   
   
   $sc_consumer = OAuth::Consumer.new(consumer_token, consumer_secret, {
