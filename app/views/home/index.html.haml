@@ -1,31 +1,23 @@
 %html
   %head
-    %title REKORDZ
+    %title RecButton
     %script{:src => '/javascripts/jquery.js'}
     -#    %script{:src => 'http://connect.soundcloud.com/base.js'}
     %script{:src => '/javascripts/connect.js'}
-    
     %script{:src => '/javascripts/recorder.js'}
     %script{:src => '/javascripts/home_controller.js'}
     = stylesheet_link_tag 'base'
 
   %body
     .head
-      %h1 REKORDZ
+      %h1 RecButton
       %h2 welcome to teh intersoundz
-    
-    %svg{:xmlns => "http://www.w3.org/2000/svg",:width => 400, :height => 400}
-      %circle{:cx => 50, :cy => 50, :r => 50, :style => 'fill: green', :'stroke-color' => 'green', :'stroke-width' => 3}
-    
-    
-    
+
     .actions
       %a#play{   :href => '#play'  } Play
       %a#record{ :href => '#record'} Record
       %a#share{   :href => '#share' } Share
-      
-      
-    
+
     = render :partial => 'home/flash_object', :object => {:id => 'recorder', :height => 140, :width => 230, :src => '/swf/recorder.swf', :wmode => 'transparent', :allowscriptaccess => 'always'}
   
   
