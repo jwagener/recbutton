@@ -9,6 +9,13 @@ SC.Connect.options = {
 
 var connected = false;
 
+var checkFlashVersion = function(){
+  var flashVersion = swfobject.getFlashPlayerVersion();
+  if(!(flashVersion.major >= 10 && flashVersion.minor >= 1)){
+    alert('Please install a current flash version. Your version: ' + flashVersion.major + '.' + flashVersion.minor);  
+  }  
+};
+
 function formatMs(ms) {
   var s = Math.floor((ms/1000) % 60);
   if (s < 10) { s = "0"+s; }
@@ -16,13 +23,16 @@ function formatMs(ms) {
 }
 
 $(document).ready(function(){
+  checkFlashVersion();
+
 
   var postURI = "http://localhost:3000/upload";
   RECORDER = new Recorder($('.recorder embed')[0]);
+  
   CALLBACK_REGISTRY.bind('debug', function(arg){
     //console.log(arg);    
   });
-
+  
   CALLBACK_REGISTRY.bind('recordingStart', function(arg){
     console.log('rec 1');    
     $('#record-stop').css('display','block').animate({'opacity':1});
@@ -46,8 +56,9 @@ $(document).ready(function(){
     $('#play').removeClass('playing');      
   });
 
-  CALLBACK_REGISTRY.bind('uploadComplete', function(arg){
-    console.log('upload 1');    
+  CALLBACK_REGISTRY.bind('uploadComplete', function(evt){
+    var response = evt.target.loader.data;
+    var permalinkUrl = $(response).find('permalink-url').html();
   });
 
   $("body").one('mousemove',function() {
