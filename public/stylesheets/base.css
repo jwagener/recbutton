@@ -217,6 +217,17 @@ h1 {
   top: 240px !important;
 }
 
+#permalink-url {
+  position: absolute;
+  left: 50%;
+  top: 170px;
+  width: 330px;
+  background: none;
+  border: 0;
+  color: white;
+  margin-left: -115px;
+}
+
 #recorder {
   position: absolute;
   left: 50%;

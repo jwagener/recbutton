@@ -59,6 +59,8 @@ $(document).ready(function(){
   CALLBACK_REGISTRY.bind('uploadComplete', function(evt){
     var response = evt.target.loader.data;
     var permalinkUrl = $(response).find('permalink-url').html();
+    
+    $('#permalink-url').attr('value', permalinkUrl);
   });
 
   $("body").one('mousemove',function() {
