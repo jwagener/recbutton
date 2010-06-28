@@ -43,7 +43,7 @@ $(document).ready(function(){
   });
 
   CALLBACK_REGISTRY.bind('playingStop', function(arg){
-    console.log('pl 0');    
+    $('#play').removeClass('playing');      
   });
 
   CALLBACK_REGISTRY.bind('uploadComplete', function(arg){
@@ -51,7 +51,7 @@ $(document).ready(function(){
   });
 
   $("body").one('mousemove',function() {
-    $("h1,h2,#record-instruction").removeClass("hidden");
+    $("h1,#record-instruction").removeClass("hidden");
     $("#record-instruction").addClass("moveup");
   });
 
@@ -88,12 +88,10 @@ $(document).ready(function(){
   
   $('#play').click(function(){
     if(RECORDER.isPlaying){
-      $('#play').html('play');
       $('#play').removeClass('playing');      
       RECORDER.stopPlaying();
     }else{
       RECORDER.startPlaying();
-      $('#play').html('stop');
       $('#play').addClass('playing');
     }
     

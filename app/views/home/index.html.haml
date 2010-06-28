@@ -11,7 +11,6 @@
   %body
     .head
       %h1.hidden RecButton
-      %h2.hidden welcome to teh intersoundz
 
     .actions
       #time.hidden 00:00
@@ -23,4 +22,4 @@
       %div#play-instruction.hidden Play
       %div#share-instruction.hidden Share
 
-    = render :partial => 'home/flash_object', :object => {:id => 'recorder', :height => 140, :width => 230, :src => '/swf/recorder.swf', :wmode => 'transparent', :allowscriptaccess => 'always'}
+      = render :partial => 'home/flash_object', :object => {:id => 'recorder', :height => 140, :width => 230, :src => '/swf/recorder.swf', :wmode => 'transparent', :allowscriptaccess => 'always'}
