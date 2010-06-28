@@ -13,10 +13,10 @@
     .head
       %h1.hidden RecButton
 
-    .share-actions
-      #track-url http://soundcloud.com/forss/slfoss
-      %a#share-fb Facebook
-      %a#share-twitter Twitter
+    .share-actions.hidden
+      %input#permalink-url{:value => "testingasdfsa d asdf"}
+      %a#share-fb{:href => '#facebook'} Facebook
+      %a#share-twitter{:href => '#twitter'} Twitter
       %div#share-more-instruction Share more
       %div#your-track-instruction Your track
 
@@ -29,5 +29,4 @@
       %div#record-instruction.hidden Click to record
       %div#play-instruction.hidden Play
       %div#share-instruction.hidden Share
-      %input#permalink-url
       = render :partial => 'home/flash_object', :object => {:id => 'recorder', :height => 140, :width => 230, :src => '/swf/recorder.swf', :wmode => 'transparent', :allowscriptaccess => 'always'}

@@ -36,7 +36,7 @@ h1 {
 
 .actions {
   width: 600px;
-  height: 300px;
+  height: 100px;
   position: absolute;
   top: 150px;
   left: 50%;
@@ -50,6 +50,7 @@ h1 {
   top: 400px;
   left: 50%;
   margin-left: -300px;
+  -moz-transition: opacity 1s linear;
 }
 
 #play {
@@ -208,24 +209,22 @@ h1 {
   -moz-transition: opacity 1s linear,top 1s ease-out;
 }
 
-#track-url {
-  text-align: center;
-  font-size: 24px;
-}
-
 .moveup {
   top: 240px !important;
 }
 
 #permalink-url {
+  text-align: center;
+  font-size: 24px;
   position: absolute;
   left: 50%;
-  top: 170px;
-  width: 330px;
+  top: 0px;
+  width: 600px;
   background: none;
   border: 0;
   color: white;
-  margin-left: -115px;
+  margin-left: -300px;
+  display: block;
 }
 
 #recorder {

@@ -24,7 +24,8 @@ function formatMs(ms) {
 
 $(document).ready(function(){
   checkFlashVersion();
-
+  
+  $('#permalink-url').attr('value',"");
 
   var postURI = "http://localhost:3000/upload";
   RECORDER = new Recorder($('.recorder embed')[0]);
@@ -61,6 +62,24 @@ $(document).ready(function(){
     var permalinkUrl = $(response).find('permalink-url').html();
     
     $('#permalink-url').attr('value', permalinkUrl);
+    $(".share-actions").removeClass("hidden");
+    
+  });
+
+  // share
+  
+  $("#share-fb").click(function() {
+    window.open('http://facebook.com/sharer.php?u=' + encodeURIComponent($('#permalink-url').attr('value')));
+    return false;
+  });
+
+  $("#share-twitter").click(function() {
+    $('#permalink-url').attr('value');
+    return false;
+  });
+  
+  $("#permalink-url").click(function() {
+    $(this).select();
   });
 
   $("body").one('mousemove',function() {
@@ -69,6 +88,7 @@ $(document).ready(function(){
   });
 
   $('#share').click(function(){
+    $("#share-instruction").addClass("hidden").removeClass("moveup");
     SC.Connect.initiate();
     return false;
   });
