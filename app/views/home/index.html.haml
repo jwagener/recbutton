@@ -4,20 +4,24 @@
     %script{:src => '/javascripts/jquery.js'}
     -#    %script{:src => 'http://connect.soundcloud.com/base.js'}
     %script{:src => '/javascripts/connect.js'}
+    %script{:src => '/javascripts/swfobject.js'}
     %script{:src => '/javascripts/recorder.js'}
     %script{:src => '/javascripts/home_controller.js'}
     = stylesheet_link_tag 'base'
 
   %body
     .head
-      %h1 RecButton
-      %h2 welcome to teh intersoundz
+      %h1.hidden RecButton
+      %h2.hidden welcome to teh intersoundz
 
     .actions
-      %a#play{   :href => '#play'  } Play
-      %a#record{ :href => '#record'} Record
-      %a#share{   :href => '#share' } Share
+      #time.hidden 00:00
+      %a#play.hidden{:href => '#play'} Play
+      %a#record{:href => '#record'} Record
+      %a#record-stop.hidden{:href => '#record-stop'} Stop recording
+      %a#share.hidden{:href => '#share'} Share
+      %div#record-instruction.hidden Click to record
+      %div#play-instruction.hidden Play
+      %div#share-instruction.hidden Share
 
     = render :partial => 'home/flash_object', :object => {:id => 'recorder', :height => 140, :width => 230, :src => '/swf/recorder.swf', :wmode => 'transparent', :allowscriptaccess => 'always'}
-  
-  

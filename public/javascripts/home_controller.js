@@ -16,8 +16,16 @@ var checkFlashVersion = function(){
   }  
 };
 
+function formatMs(ms) {
+  var s = Math.floor((ms/1000) % 60);
+  if (s < 10) { s = "0"+s; }
+  return Math.floor(ms/60000) + "." + s;
+}
+
 $(document).ready(function(){
   checkFlashVersion();
+
+
   var postURI = "http://localhost:3000/upload";
   RECORDER = new Recorder($('.recorder embed')[0]);
   
@@ -27,6 +35,13 @@ $(document).ready(function(){
   
   CALLBACK_REGISTRY.bind('recordingStart', function(arg){
     console.log('rec 1');    
+    $('#record-stop').css('display','block').animate({'opacity':1});
+    $("#time").removeClass("hidden");
+    // start the rec timer
+    var oT = new Date();
+    recTimer = setInterval(function() {
+      $("#time").html(formatMs((new Date()).getTime()-oT.getTime()));
+    },300);
   });
 
   CALLBACK_REGISTRY.bind('recordingStop', function(arg){
@@ -41,31 +56,56 @@ $(document).ready(function(){
     console.log('pl 0');    
   });
 
-  $('a#share').click(function(){
+  CALLBACK_REGISTRY.bind('uploadComplete', function(evt){
+    var response = evt.target.loader.data;
+    var permalinkUrl = $(response).find('permalink-url').html();
+  });
+
+  $("body").one('mousemove',function() {
+    $("h1,h2,#record-instruction").removeClass("hidden");
+    $("#record-instruction").addClass("moveup");
+  });
+
+  $('#share').click(function(){
     SC.Connect.initiate();
     return false;
   });
   
-  $('a#record').click(function(){
+  var recTimer;
+  
+  $('a#record,a#record-stop').click(function(){
     if(RECORDER.isRecording){
-      $('a#record').html('record');
+      //$('a#record').html('record');
+      $('#record-stop').animate({'opacity':0},function() {
+        $('#record-stop').css('display','block');
+      });
+      $("#play").removeClass("hidden");
+      $("#share").removeClass("hidden");
+      
+      $("body").one('mousemove',function() {
+        $("#play-instruction, #share-instruction").removeClass("hidden").addClass("moveup");
+      });
+      
+      clearInterval(recTimer);
+      $("#time").addClass("hidden");
       RECORDER.stopRecording();
-    }else{
-      RECORDER.setup();
-      $('a#record').html('stop');
+    } else {
       RECORDER.startRecording();
+      $("#record-instruction").addClass("hidden").removeClass("moveup");
     }
     
     return false;
   });
   
-  $('a#play').click(function(){
+  $('#play').click(function(){
     if(RECORDER.isPlaying){
-      $('a#play').html('play');
+      $('#play').html('play');
+      $('#play').removeClass('playing');      
       RECORDER.stopPlaying();
     }else{
       RECORDER.startPlaying();
-      $('a#play').html('stop');
+      $('#play').html('stop');
+      $('#play').addClass('playing');
     }
     
     return false;
