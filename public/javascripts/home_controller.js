@@ -19,6 +19,36 @@ $(document).ready(function(){
 
   var postURI = "http://localhost:3000/upload";
   RECORDER = new Recorder($('.recorder embed')[0]);
+  CALLBACK_REGISTRY.bind('debug', function(arg){
+    //console.log(arg);    
+  });
+
+  CALLBACK_REGISTRY.bind('recordingStart', function(arg){
+    console.log('rec 1');    
+    $('#record-stop').css('display','block').animate({'opacity':1});
+    $("#time").removeClass("hidden");
+    // start the rec timer
+    var oT = new Date();
+    recTimer = setInterval(function() {
+      $("#time").html(formatMs((new Date()).getTime()-oT.getTime()));
+    },300);
+  });
+
+  CALLBACK_REGISTRY.bind('recordingStop', function(arg){
+    console.log('rec 0');    
+  });
+
+  CALLBACK_REGISTRY.bind('playingStart', function(arg){
+    console.log('pl 1');    
+  });
+
+  CALLBACK_REGISTRY.bind('playingStop', function(arg){
+    console.log('pl 0');    
+  });
+
+  CALLBACK_REGISTRY.bind('uploadComplete', function(arg){
+    console.log('upload 1');    
+  });
 
   $("body").one('mousemove',function() {
     $("h1,h2,#record-instruction").removeClass("hidden");
@@ -48,20 +78,9 @@ $(document).ready(function(){
       clearInterval(recTimer);
       $("#time").addClass("hidden");
       RECORDER.stopRecording();
-    }else{
-      RECORDER.setup();
-//        $('a#record-stop').css('display','block');
-        $('#record-stop').css('display','block').animate({'opacity':1});
-        $("#record-instruction").addClass("hidden").removeClass("moveup");
-        $("#time").removeClass("hidden");
-        // start the rec timer
-        var oT = new Date();
-        recTimer = setInterval(function() {
-          $("#time").html(formatMs((new Date()).getTime()-oT.getTime()));
-        },300);
-
-        //$('a#record').html('stop');
+    } else {
       RECORDER.startRecording();
+      $("#record-instruction").addClass("hidden").removeClass("moveup");
     }
     
     return false;

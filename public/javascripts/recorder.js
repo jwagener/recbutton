@@ -1,3 +1,27 @@
+var CALLBACK_REGISTRY = {
+  triggerCallbacks: function(eventName, arg){
+    //console.log('trig ', eventName, arg);
+    var cs = this.getCallbacks(eventName);
+    for(var i=0; i < cs.length; i++){
+      cs[i](arg);
+    } 
+  },
+  
+  callbacks: {},
+  
+  getCallbacks: function(eventName){
+    if(!this.callbacks[eventName]){
+      this.callbacks[eventName] = [];
+    }
+    
+    return this.callbacks[eventName];
+  },
+  
+  bind: function(eventName, f){
+    this.getCallbacks(eventName).push(f);
+  }
+}
+
 function Recorder(swfObject){
    this.swfObject   = swfObject;
    this.isPlaying   = false;
