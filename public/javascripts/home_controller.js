@@ -75,7 +75,7 @@ $(document).ready(function(){
   });
 
   $("#share-twitter").click(function() {
-    $('#permalink-url').attr('value');
+    window.open('http://twitter.com/home/?source=soundcloud&status=I just recorded something! ' + encodeURIComponent($('#permalink-url').attr('value')) + encodeURIComponent(' #recbutton'));
     return false;
   });
   
