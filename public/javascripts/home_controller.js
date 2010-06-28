@@ -12,6 +12,9 @@ var connected = false;
 $(document).ready(function(){
   var postURI = "http://localhost:3000/upload";
   RECORDER = new Recorder($('.recorder embed')[0]);
+  CALLBACK_REGISTRY.bind('debug', function(arg){
+    console.log(arg);    
+  });
 
   $('a#share').click(function(){
     SC.Connect.initiate();
@@ -24,8 +27,7 @@ $(document).ready(function(){
       RECORDER.stopRecording();
     }else{
       RECORDER.setup();
-      
-        $('a#record').html('stop');
+      $('a#record').html('stop');
       RECORDER.startRecording();
     }
     
@@ -35,7 +37,6 @@ $(document).ready(function(){
   $('a#play').click(function(){
     if(RECORDER.isPlaying){
       $('a#play').html('play');
-      
       RECORDER.stopPlaying();
     }else{
       RECORDER.startPlaying();
