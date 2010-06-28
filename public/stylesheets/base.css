@@ -23,15 +23,132 @@ body, a, a:visited, a:active {
 
 h1 {
   font-size: 4em;
+  -moz-transition: opacity 1s linear;
 }
 
 h2 {
   font-size: 1.46em;
   margin-top: -15px;
+  -moz-transition: opacity 1s linear;
 }
 
 .base {
   margin-left: 50px;
-  
 }
 
+.actions {
+  width: 600px;
+  height: 300px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  margin-left: -300px;
+}
+
+#play {
+  position: absolute;
+  left: 15%;
+  top: 50px;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  background: blue;
+  text-indent: -10000px;
+  -moz-transition: opacity 1s linear;
+}
+
+#play.playing {
+  background: grey;
+}
+
+#record {
+  position: absolute;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  text-indent: -10000px;
+  background: red;
+}
+
+#time {
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  width: 100px;
+  height: 30px;
+  margin-left: -50px;
+  text-align: center;
+  -moz-transition: opacity 1s linear;
+}
+
+#record-stop {
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  width: 100px;
+  height: 100px;
+  margin-left: -50;
+  text-indent: -10000px;
+  background: blue;
+  opacity: 0;
+  display: none;
+}
+
+#share {
+  position: absolute;
+  left: 85%;
+  top: 50px;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  background: blue;
+  text-indent: -10000px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#record-instruction {
+  position: absolute;
+  left: 75%;
+  top: 250px;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  background: yellow;
+  text-indent: -10000px;
+  margin-top: -10px;
+  -moz-transition: opacity 1s linear,top 1s ease-out;
+}
+
+#play-instruction {
+  position: absolute;
+  left: -5%;
+  top: 250px;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  background: yellow;
+  text-indent: -10000px;
+  margin-top: -50px;
+  -moz-transition: opacity 1s linear,top 1s ease-out;
+}
+
+#share-instruction {
+  position: absolute;
+  left: 105%;
+  top: 250px;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  background: yellow;
+  text-indent: -10000px;
+  margin-top: -50px;
+  -moz-transition: opacity 1s linear,top 1s ease-out;
+}
+
+.moveup {
+  top: 240px !important;
+}
