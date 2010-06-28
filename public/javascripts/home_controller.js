@@ -103,6 +103,7 @@ $(document).ready(function(){
       RECORDER.stopPlaying();
     }else{
       RECORDER.startPlaying();
+      $("#play-instruction").addClass("hidden").removeClass("moveup");
       $('#play').addClass('playing');
     }
     

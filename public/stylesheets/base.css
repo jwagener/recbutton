@@ -38,7 +38,16 @@ h1 {
   width: 600px;
   height: 300px;
   position: absolute;
-  top: 200px;
+  top: 150px;
+  left: 50%;
+  margin-left: -300px;
+}
+
+.share-actions {
+  width: 600px;
+  height: 200px;
+  position: absolute;
+  top: 400px;
   left: 50%;
   margin-left: -300px;
 }
@@ -117,7 +126,7 @@ h1 {
   margin-left: -91px;
   background: url(/images/record-help.png);
   text-indent: -10000px;
-  margin-top: -420px;
+  margin-top: -390px;
   -moz-transition: opacity 1s linear,top 1s ease-out;
 }
 
@@ -145,6 +154,63 @@ h1 {
   text-indent: -10000px;
   margin-top: -90px;
   -moz-transition: opacity 1s linear,top 1s ease-out;
+}
+
+#share-more-instruction {
+  position: absolute;
+  left: 105%;
+  top: 0px;
+  width: 341px;
+  height: 200px;
+  margin-left: -170px;
+  background: url(/images/share-more-help.png);
+  text-indent: -10000px;
+  margin-top: -0px;
+  -moz-transition: opacity 1s linear,top 1s ease-out;
+}
+
+#your-track-instruction {
+  position: absolute;
+  left: 0%;
+  top: 0px;
+  width: 255px;
+  height: 174px;
+  margin-left: -123px;
+  background: url(/images/your-track-help.png);
+  text-indent: -10000px;
+  margin-top: 60px;
+  -moz-transition: opacity 1s linear,top 1s ease-out;
+}
+
+#share-fb {
+  position: absolute;
+  left: 45%;
+  top: 0px;
+  width: 20px;
+  height: 35px;
+  margin-left: -10px;
+  background: url(/images/fb-button.png);
+  text-indent: -10000px;
+  margin-top: 50px;
+  -moz-transition: opacity 1s linear,top 1s ease-out;
+}
+
+#share-twitter {
+  position: absolute;
+  left: 55%;
+  top: 0px;
+  width: 29px;
+  height: 38px;
+  margin-left: -15px;
+  background: url(/images/twitter-button.png);
+  text-indent: -10000px;
+  margin-top: 50px;
+  -moz-transition: opacity 1s linear,top 1s ease-out;
+}
+
+#track-url {
+  text-align: center;
+  font-size: 24px;
 }
 
 .moveup {
