@@ -63,6 +63,7 @@ $(document).ready(function(){
     
     $('#permalink-url').attr('value', permalinkUrl);
     $(".share-actions").removeClass("hidden");
+    $(".share-actions").css("z-index",1000);
     
   });
 
