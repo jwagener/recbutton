@@ -13,7 +13,23 @@ $(document).ready(function(){
   var postURI = "http://localhost:3000/upload";
   RECORDER = new Recorder($('.recorder embed')[0]);
   CALLBACK_REGISTRY.bind('debug', function(arg){
-    console.log(arg);    
+    //console.log(arg);    
+  });
+
+  CALLBACK_REGISTRY.bind('recordingStart', function(arg){
+    console.log('rec 1');    
+  });
+
+  CALLBACK_REGISTRY.bind('recordingStop', function(arg){
+    console.log('rec 0');    
+  });
+
+  CALLBACK_REGISTRY.bind('playingStart', function(arg){
+    console.log('pl 1');    
+  });
+
+  CALLBACK_REGISTRY.bind('playingStop', function(arg){
+    console.log('pl 0');    
   });
 
   $('a#share').click(function(){
