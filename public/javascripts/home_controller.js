@@ -9,13 +9,22 @@ SC.Connect.options = {
 
 var connected = false;
 
+var checkFlashVersion = function(){
+  var flashVersion = swfobject.getFlashPlayerVersion();
+  if(!(flashVersion.major >= 10 && flashVersion.minor >= 1)){
+    alert('Please install a current flash version. Your version: ' + flashVersion.major + '.' + flashVersion.minor);  
+  }  
+};
+
 $(document).ready(function(){
+  checkFlashVersion();
   var postURI = "http://localhost:3000/upload";
   RECORDER = new Recorder($('.recorder embed')[0]);
+  
   CALLBACK_REGISTRY.bind('debug', function(arg){
     //console.log(arg);    
   });
-
+  
   CALLBACK_REGISTRY.bind('recordingStart', function(arg){
     console.log('rec 1');    
   });
