@@ -84,7 +84,7 @@ $(document).ready(function(){
   });
 
   $("body").one('mousemove',function() {
-    $("h1,#record-instruction").removeClass("hidden");
+    $("h1,#record-instruction").removeClass("opacity-zero");
     $("#record-instruction").addClass("moveup");
   });
 

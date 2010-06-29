@@ -13,15 +13,7 @@
 
   %body
     .head
-      %h1.hidden RecButton
-
-    .share-actions.hidden
-      %input#permalink-url{:value => ""}
-      .more-share-actions.hidden
-        %a#share-fb{:href => '#facebook'} Facebook
-        %a#share-twitter{:href => '#twitter'} Twitter
-        %div#share-more-instruction Share more
-        %div#your-track-instruction Your track
+      %h1.opacity-zero RecButton
 
     .actions
       #time.hidden 0.00
@@ -29,7 +21,15 @@
       %a#record{:href => '#record'} Record
       %a#record-stop.hidden{:href => '#record-stop'} Stop recording
       %a#share.hidden{:href => '#share'} Share
-      %div#record-instruction.hidden Click to record
+      %div#record-instruction.opacity-zero Click to record
       %div#play-instruction.hidden Play
       %div#share-instruction.hidden Share
       = render :partial => 'home/flash_object', :object => {:id => 'recorder', :height => 140, :width => 230, :src => '/swf/Recorder.swf', :wmode => 'transparent', :allowscriptaccess => 'always'}
+      
+    .share-actions.hidden
+      %input#permalink-url{:value => ""}
+      .more-share-actions.hidden
+        %a#share-fb{:href => '#facebook'} Facebook
+        %a#share-twitter{:href => '#twitter'} Twitter
+        %div#share-more-instruction Share more
+        %div#your-track-instruction Your track
