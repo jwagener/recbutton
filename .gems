@@ -1,4 +1,4 @@
-rails '= 2.3.5'
+rails --version 2.3.5
 activeresource
 activesupport
 multipart
