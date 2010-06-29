@@ -42,9 +42,8 @@ $(document).ready(function(){
   });
   
   CALLBACK_REGISTRY.bind('recordingStart', function(arg){
-    //console.log('rec', arg);
     $('#record-stop').css('display','block').animate({'opacity':1});
-    $("#time").removeClass("hidden");
+    $("#time").html('0.00').removeClass("hidden");
     // start the rec timer
     var oT = new Date();
     recTimer = setInterval(function() {
@@ -52,11 +51,8 @@ $(document).ready(function(){
     },300);
   });
 
-  CALLBACK_REGISTRY.bind('recordingStop', function(arg){
-  });
-
-  CALLBACK_REGISTRY.bind('playingStart', function(arg){
-  });
+  CALLBACK_REGISTRY.bind('recordingStop', function(arg){});
+  CALLBACK_REGISTRY.bind('playingStart', function(arg){});
 
   CALLBACK_REGISTRY.bind('playingStop', function(arg){
     $('#play').removeClass('playing');      
