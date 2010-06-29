@@ -4,6 +4,7 @@ SC.Connect.options = {
   'access_token_endpoint': '/oauth/access_token',
   'callback': function(params) {
     RECORDER.post(params['post_uri']);
+    $('#permalink-url').attr('value', 'uploading...');
   }
 };
 
