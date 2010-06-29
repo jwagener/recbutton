@@ -37,8 +37,12 @@ $(document).ready(function(){
     //console.log(arg);    
   });
   
+  CALLBACK_REGISTRY.bind('status', function(arg){
+    //console.log(arg);    
+  });
+  
   CALLBACK_REGISTRY.bind('recordingStart', function(arg){
-    console.log('rec', arg);
+    //console.log('rec', arg);
     $('#record-stop').css('display','block').animate({'opacity':1});
     $("#time").removeClass("hidden");
     // start the rec timer
