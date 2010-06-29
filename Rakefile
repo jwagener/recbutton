@@ -8,3 +8,8 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 
 require 'tasks/rails'
+
+
+task :import_recorder do
+  `cp ../Recorder/bin-release/Recorder.swf public/swf/Recorder.swf`
+end

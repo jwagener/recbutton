@@ -38,7 +38,7 @@ $(document).ready(function(){
   });
   
   CALLBACK_REGISTRY.bind('recordingStart', function(arg){
-    console.log('rec 1');    
+    console.log('rec', arg);
     $('#record-stop').css('display','block').animate({'opacity':1});
     $("#time").removeClass("hidden");
     // start the rec timer
@@ -49,11 +49,9 @@ $(document).ready(function(){
   });
 
   CALLBACK_REGISTRY.bind('recordingStop', function(arg){
-    console.log('rec 0');    
   });
 
   CALLBACK_REGISTRY.bind('playingStart', function(arg){
-    console.log('pl 1');    
   });
 
   CALLBACK_REGISTRY.bind('playingStop', function(arg){
@@ -67,7 +65,6 @@ $(document).ready(function(){
     $('#permalink-url').attr('value', permalinkUrl);
     $(".share-actions, .more-share-actions").removeClass("hidden");
     $(".share-actions, .more-share-actions").css("z-index",1000);
-    
   });
 
   // share
