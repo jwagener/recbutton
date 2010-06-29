@@ -3,14 +3,11 @@
     %title RecButton
     %meta{:name => "description", :content => 'record audio in your browser and share instantly'}
     %link{:rel => "image_src", :href => '/images/recbutton-159x159.png'}
+    
+    - ['jquery', 'connect', 'swfobject', 'recorder', 'home_controller'].each do |js|
+      = javascript_include_tag js
 
-    %script{:src => '/javascripts/jquery.js'}
-    -#    %script{:src => 'http://connect.soundcloud.com/base.js'}
-    %script{:src => '/javascripts/connect.js'}
-    %script{:src => '/javascripts/swfobject.js'}
-    %script{:src => '/javascripts/recorder.js'}
-    %script{:src => '/javascripts/home_controller.js'}
-    %script{:src => '/javascripts/ga_tracking.js'}
+    %script{:type => 'text/javascript'}= ga_tracking_code
 
     = stylesheet_link_tag 'base'
 
