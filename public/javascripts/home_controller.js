@@ -5,6 +5,8 @@ SC.Connect.options = {
   'callback': function(params) {
     RECORDER.post(params['post_uri']);
     $('#permalink-url').attr('value', 'uploading...');
+    $(".share-actions").removeClass("hidden");
+    $(".share-actions").css("z-index",1000);
   }
 };
 
@@ -63,8 +65,8 @@ $(document).ready(function(){
     var permalinkUrl = $(response).find('permalink-url').html();
     
     $('#permalink-url').attr('value', permalinkUrl);
-    $(".share-actions").removeClass("hidden");
-    $(".share-actions").css("z-index",1000);
+    $(".share-actions, .more-share-actions").removeClass("hidden");
+    $(".share-actions, .more-share-actions").css("z-index",1000);
     
   });
 
